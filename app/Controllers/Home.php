@@ -35,7 +35,13 @@ class Home extends BaseController
                     'isLoggedIn' => TRUE
                 ];
                 $session->set($ses_data);
-                return redirect()->to(base_url('/Admin'));
+                if ($data['id_bagian'] == 7) {
+                    return redirect()->to(base_url('/Admin'));
+                } else if ($data['id_bagian'] == 8) {
+                    return redirect()->to(base_url('/Manajer'));
+                } else if ($data['id_bagian'] == 9) {
+                    return redirect()->to(base_url('/Gudang'));
+                }
             } else {
                 $session->setFlashdata('msg', 'Password is incorrect.');
                 return redirect()->to(base_url('/'));

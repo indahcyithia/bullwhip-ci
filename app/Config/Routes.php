@@ -33,6 +33,15 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/Admin', 'Admin::index');
+$routes->get('/Manajer', 'Manajer::index');
+$routes->get('/Gudang', 'Gudang::index');
+
+$routes->get('/Gudang/Stock', 'Gudang::stock');
+$routes->get('/Gudang/Pengambilan', 'Gudang::pengambilan');
+$routes->get('/Gudang/TambahPengambilan', 'Gudang::tambahPengambilan');
+$routes->get('/Admin/SavePengambilan', 'Admin::savePengambilan');
+
+$routes->get('/Manajer/Dashboard', 'Manajer::dashboard');
 
 $routes->get('/Admin/Bagian', 'Admin::bagian');
 $routes->get('/Admin/TambahBagian', 'Admin::tambahBagian');
@@ -54,7 +63,8 @@ $routes->get('/Admin/UbahPegawai', 'Admin::ubahPegawai');
 $routes->get('/Admin/updatePegawai', 'Admin::updatePegawai');
 $routes->get('/Admin/deletePegawai', 'Admin::deletePegawai');
 
-$routes->get('/Admin/TambahPegawai', 'Home::login');
+$routes->get('/Home/Login', 'Home::login');
+
 
 /*
  * --------------------------------------------------------------------
