@@ -1,6 +1,8 @@
 <?php
-	include "session_gudang.php";
+include "session_pesanan.php";
+include "barang_konek.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -23,17 +25,15 @@
   <body>
 
 	<?php
-		include "navbar.php";
+    	include "navbar.php";
 
-		// include "form_2_input_pengambilan_barang.php";
-
-	?>
-
+        include "form_2_barang.php";
+    ?>
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="../js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
   </body>
 </html>

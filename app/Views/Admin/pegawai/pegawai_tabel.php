@@ -3,9 +3,13 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="table-responsive">
+                <center>
+                    <h2>Daftar Pegawai</h2>
+                </center>
+                <br>
                 <table class="table">
                     <tr>
-                        <th> </th>
+                        <th> No </th>
                         <th> Username </th>
                         <th> Password </th>
                         <th> Nama Pegawai </th>

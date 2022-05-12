@@ -5,26 +5,27 @@
         <div class="col-md-7 col-md-offset-2">
             <div class="table-responsive">
                 <center>
-                    <h2>Daftar Pengambilan</h2>
+                    <h2>Daftar Stok</h2>
                 </center>
                 <br>
                 <table class="table">
                     <tr>
-                        <th> No </th>
-                        <th> Nama Pengambilan </th>
+                        <th> </th>
                         <th> Nama Barang </th>
+                        <th> Jumlah Produksi </th>
                         <th> Jumlah Pengambilan </th>
-
+                        <th> Stok Barang </th>
 
                     </tr>
                     <tr>
                         <?php
-                        foreach ($Pengambilan as $key => $data) {
+                        foreach ($DataStok as $key => $data) {
                         ?>
                             <td> <?php echo $key + 1 ?> </td>
-                            <td> <?php echo $data["nama_pengambil"] ?> </td>
                             <td> <?php echo $data["nama_barang"] ?> </td>
-                            <td> <?php echo $data["jumlah_pengambilan"] ?> </td>
+                            <td> <?php echo $data["total_produksi"] ?> </td>
+                            <td> <?php echo $data["total_pengambilan"] ?> </td>
+                            <td> <?php echo $data["stok_barang"] ?> </td>
 
                     </tr>
                 <?php

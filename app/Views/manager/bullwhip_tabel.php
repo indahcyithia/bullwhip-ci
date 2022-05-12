@@ -2,9 +2,13 @@
   <div class="row">
     <div class="col-md-12">
       <div class="table-responsive">
+        <center>
+          <h2>Dashborad</h2>
+        </center>
+        <br>
         <table class="table">
           <tr>
-            <th> </th>
+            <th> No </th>
             <th> Nama Barang </th>
             <th> Deviasi Pesanan </th>
             <th> Mean Pesanan </th>

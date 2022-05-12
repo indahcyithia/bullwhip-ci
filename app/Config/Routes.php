@@ -35,6 +35,18 @@ $routes->get('/', 'Home::index');
 $routes->get('/Admin', 'Admin::index');
 $routes->get('/Manajer', 'Manajer::index');
 $routes->get('/Gudang', 'Gudang::index');
+$routes->get('/Pesanan', 'Pesanan::index');
+$routes->get('/Produksi', 'Produksi::index');
+
+$routes->get('/Produksi/Pesanan', 'Produksi::daftarPesanan');
+$routes->get('/Produksi/ProsesPesanan', 'Produksi::prosesPesanan');
+$routes->get('/Produksi/SavePesanan', 'Produksi::saveProduksi');
+$routes->get('/Produksi/DaftarProduksi', 'Produksi::daftarProduksi');
+
+$routes->get('/Pesanan/DaftarPesanan', 'Pesanan::daftarPesanan');
+$routes->get('/Pesanan/TambahPesanan', 'Pesanan::tambahPesanan');
+$routes->get('/Pesanan/SavePesanan', 'Pesanan::savePesanan');
+$routes->get('/Pesanan/BarangBaru', 'Pesanan::barangBaru');
 
 $routes->get('/Gudang/Stock', 'Gudang::stock');
 $routes->get('/Gudang/Pengambilan', 'Gudang::pengambilan');

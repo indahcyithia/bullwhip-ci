@@ -41,6 +41,10 @@ class Home extends BaseController
                     return redirect()->to(base_url('/Manajer'));
                 } else if ($data['id_bagian'] == 9) {
                     return redirect()->to(base_url('/Gudang'));
+                } else if ($data['id_bagian'] == 10) {
+                    return redirect()->to(base_url('/Pesanan'));
+                } else if ($data['id_bagian'] == 11) {
+                    return redirect()->to(base_url('/Produksi'));
                 }
             } else {
                 $session->setFlashdata('msg', 'Password is incorrect.');

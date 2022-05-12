@@ -3,9 +3,13 @@
     <div class="row">
         <div class="col-md-7 col-md-offset-2">
             <div class="table-responsive">
+                <center>
+                    <h2>Daftar Barang</h2>
+                </center>
+                <br>
                 <table class="table">
                     <tr>
-                        <th> </th>
+                        <th> No </th>
                         <th> Nama Barang </th>
                         <th> Edit </th>
                         <th> Delete </th>
