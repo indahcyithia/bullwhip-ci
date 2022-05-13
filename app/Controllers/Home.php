@@ -9,6 +9,7 @@ class Home extends BaseController
 {
     public function index()
     {
+        $session = session();
         return view('index');
     }
     public function logout()
@@ -35,24 +36,26 @@ class Home extends BaseController
                     'isLoggedIn' => TRUE
                 ];
                 $session->set($ses_data);
-                if ($data['id_bagian'] == 7) {
-                    return redirect()->to(base_url('/Admin'));
-                } else if ($data['id_bagian'] == 8) {
-                    return redirect()->to(base_url('/Manajer'));
-                } else if ($data['id_bagian'] == 9) {
-                    return redirect()->to(base_url('/Gudang'));
-                } else if ($data['id_bagian'] == 10) {
-                    return redirect()->to(base_url('/Pesanan'));
-                } else if ($data['id_bagian'] == 11) {
-                    return redirect()->to(base_url('/Produksi'));
-                }
+                // if ($data['id_bagian'] == 7) {
+                //     return redirect()->to(base_url('/Admin'));
+                // } else if ($data['id_bagian'] == 8) {
+                //     return redirect()->to(base_url('/Manajer'));
+                // } else if ($data['id_bagian'] == 9) {
+                //     return redirect()->to(base_url('/Gudang'));
+                // } else if ($data['id_bagian'] == 10) {
+                //     return redirect()->to(base_url('/Pesanan'));
+                // } else if ($data['id_bagian'] == 11) {
+                //     return redirect()->to(base_url('/Produksi'));
+                // }
+                $bagian = $data['id_bagian'];
+                echo json_encode($bagian);
             } else {
-                $session->setFlashdata('msg', 'Password is incorrect.');
-                return redirect()->to(base_url('/'));
+                echo json_encode("0");
+                // return redirect()->to(base_url('/'));
             }
         } else {
-            $session->setFlashdata('msg', 'Email does not exist.');
-            return redirect()->to(base_url('/'));
+            echo json_encode("0");
+            // return redirect()->to(base_url('/'));
         }
     }
 }

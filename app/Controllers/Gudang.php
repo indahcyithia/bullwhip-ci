@@ -55,6 +55,7 @@ class Gudang extends BaseController
         $jumlah = $this->request->getPost('jumlah_pengambilan');
         $pengambilanModel = new PengambilanModel();
         $data['Pengambilan'] = $pengambilanModel->tambahPengambilan($nama, $barang, $jumlah);
+        $session->set('status', 'succes');
         $this->pengambilan();
     }
 }

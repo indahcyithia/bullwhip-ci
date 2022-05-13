@@ -25,12 +25,15 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.js"></script>
+    <link rel="stylesheet" href="https://lipis.github.io/bootstrap-sweetalert/dist/sweetalert.css" />
 </head>
 
 <body>
-    <?php if (!empty($_GET["sError"])) { ?>
+    <?php if (isset($_SESSION['msg'])) { ?>
         <div class="alert alert-danger">
-            <?php echo $_GET["sError"]; ?>
+            <?php echo $_SESSION['msg']; ?>
         </div>
     <?php } ?>
     <!-- content start -->
@@ -86,14 +89,15 @@
                 </div>
 
                 <div class="form-bottom">
-                    <form role="form" action="/home/login" method="post" class="login-form">
+                    <!-- <form role="form" action="/home/login" method="post" class="login-form"> -->
+                    <form role="form" class="login-form">
                         <div class="form-group">
-                            <input required type="text" name="username" placeholder="Username..." class="form-control">
+                            <input required type="text" id="username" name="username" placeholder="Username..." class="form-control">
                         </div>
                         <div class="form-group">
-                            <input required type="password" name="password" placeholder="Password..." class="form-control">
+                            <input required type="password" id="password" name="password" placeholder="Password..." class="form-control">
                         </div>
-                        <button type="submit" class="btn btn-primary">Sign in!</button>
+                        <button type="button" id="submit" class="btn btn-primary">Sign in!</button>
                     </form>
                 </div>
             </div>
@@ -106,6 +110,54 @@
     <script src="/js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="/js/bootstrap.min.js"></script>
+    <script>
+        $("#submit").click(function() {
+            $.ajax({
+                url: '/home/login',
+                type: 'POST',
+                data: {
+                    username: document.getElementById('username').value,
+                    password: document.getElementById('password').value,
+                },
+                error: function() {
+                    alert('Something is wrong');
+                },
+                success: function(data) {
+                    const result = '[' + data + ']';
+                    var bagian = JSON.parse(result);
+
+                    if (bagian == "0") {
+                        swal({
+                            title: "Gagal!",
+                            text: "Username atau Password salah!",
+                            type: "error"
+                        })
+                    } else {
+                        swal({
+                            title: "Berhasil!",
+                            text: "Anda berhasil login!",
+                            type: "success"
+                        }, function() {
+                            if (bagian == "7") {
+                                window.location.href = "<?= base_url('/Admin') ?>";
+                            } else if (bagian == "8") {
+                                window.location.href = "<?= base_url('/Manajer') ?>";
+                            } else if (bagian == "9") {
+                                window.location.href = "<?= base_url('/Gudang') ?>";
+                            } else if (bagian == "10") {
+                                window.location.href = "<?= base_url('/Pesanan') ?>";
+                            } else if (bagian == "11") {
+                                window.location.href = "<?= base_url('/Produksi') ?>";
+                            }
+                        });
+                    }
+
+
+                }
+
+            });
+        });
+    </script>
 </body>
 
 </html>

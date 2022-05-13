@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label for="password" class="col-md-2"> Password </label>
                         <div class="col-md-7">
-                            <input required type="text" class="form-control" id="password" name="password" value="<?php echo $value['password']; ?>">
+                            <input required type="password" class="form-control" id="password" name="password" value="<?php echo $value['password']; ?>">
                         </div>
                     </div>
                     <br>

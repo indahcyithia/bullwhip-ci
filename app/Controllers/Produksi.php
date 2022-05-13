@@ -48,6 +48,7 @@ class Produksi extends BaseController
     }
     public function saveProduksi()
     {
+        $session = session();
         $id_pesanan = $this->request->getPost('id_pesanan');
         $id_barang = $this->request->getPost('id_barang');
         $lead_time = $this->request->getPost('lead_time');
@@ -56,6 +57,7 @@ class Produksi extends BaseController
         $produksiModel->tambahProduksi($id_pesanan, $id_barang, $jumlah, $lead_time);
         $pesananModel = new PesananModel();
         $pesananModel->updateProses($id_pesanan);
+        $session->set('status', 'succes');
         $this->daftarProduksi();
     }
 }

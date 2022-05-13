@@ -40,6 +40,7 @@ class Admin extends BaseController
         $barangModel = new BarangModel();
         $nama = $this->request->getPost('nama_barang');
         $barangModel->tambahBarang($nama);
+        $session->set('status', 'succes');
         $this->barang();
     }
 
@@ -60,6 +61,7 @@ class Admin extends BaseController
         $id = $this->request->getPost('id_barang');
         $nama = $this->request->getPost('nama_barang');
         $barangModel->ubahBarang($id, $nama);
+        $session->set('status', 'succes');
         $this->barang();
     }
     public function deleteBarang($id = 0)
@@ -67,6 +69,7 @@ class Admin extends BaseController
         $session = session();
         $barangModel = new BarangModel();
         $data['Barang'] = $barangModel->hapusBarang($id);
+        $session->set('status', 'delete');
         $this->barang();
     }
 
@@ -87,6 +90,7 @@ class Admin extends BaseController
         $session = session();
         $bagianModel = new BagianModel();
         $data['bagian'] = $bagianModel->hapusBagian($id);
+        $session->set('status', 'delete');
         $this->bagian();
     }
     public function tambahBagian()
@@ -103,6 +107,7 @@ class Admin extends BaseController
         $bagianModel = new BagianModel();
         $nama = $this->request->getPost('nama_bagian');
         $bagianModel->tambahBagian($nama);
+        $session->set('status', 'succes');
         $this->bagian();
     }
     public function ubahBagian($id)
@@ -122,6 +127,7 @@ class Admin extends BaseController
         $id = $this->request->getPost('id_bagian');
         $nama = $this->request->getPost('nama_bagian');
         $bagianModel->ubahBagian($id, $nama);
+        $session->set('status', 'succes');
         $this->bagian();
     }
 
@@ -141,6 +147,7 @@ class Admin extends BaseController
         $session = session();
         $pegawaiModel = new PegawaiModel();
         $data['pegawai'] = $pegawaiModel->hapusPegawai($id);
+        $session->set('status', 'delete');
         $this->pegawai();
     }
     public function tambahPegawai()
@@ -171,6 +178,7 @@ class Admin extends BaseController
             $hp_pegawai,
             $id_bagian
         );
+        $session->set('status', 'succes');
         $this->pegawai();
     }
     public function ubahPegawai($id)
@@ -205,6 +213,7 @@ class Admin extends BaseController
             $hp_pegawai,
             $id_bagian
         );
+        $session->set('status', 'succes');
         $this->pegawai();
     }
 }

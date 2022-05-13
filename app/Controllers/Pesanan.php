@@ -46,6 +46,7 @@ class Pesanan extends BaseController
         $session = session();
         $pesananModel = new PesananModel();
         $pesananModel->tambahPesanan($nama, $barang, $jumlah);
+        $session->set('status', 'succes');
         $this->daftarPesanan();
     }
     public function barangBaru()
@@ -64,6 +65,7 @@ class Pesanan extends BaseController
         $barangModel = new BarangModel();
         $nama = $this->request->getPost('nama_barang');
         $data['Barang'] = $barangModel->tambahBarang($nama);
+        $session->set('status', 'succes');
         $this->barangBaru();
     }
 }

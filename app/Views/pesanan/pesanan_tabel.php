@@ -4,10 +4,7 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
             <div class="table-responsive">
-                <center>
-                    <h2>Daftar Pesanan</h2>
-                </center>
-                <br>
+
                 <table class="table">
                     <tr>
                         <th> No</th>
